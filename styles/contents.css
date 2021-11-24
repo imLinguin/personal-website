@@ -1,6 +1,79 @@
 .contents {
-    font-size: 30px;
-    font-weight: 300;
+  font-size: 2em;
+  font-weight: 300;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.contents > div {
+  width: 50%;
+}
+
+.mystuff > .list img {
+    height: 60px;
+}
+
+.contributions > ul {
+  list-style: none;
+}
+
+.contributions a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  min-height: 60px;
+}
+
+.contributions > ul {
+    padding: 0;
+}
+
+.contributions > ul > li {
+  background: rgba(4, 82, 250, 0.2);
+  font-weight: 800;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  user-select: none;
+  transition: box-shadow 1s;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.contributions > ul > li:hover {
+  box-shadow: 0 0 10px 0 black;
+}
+.contributions > ul > li > a {
+    padding-left: 15px;
+}
+
+.contributions img {
+  width: 50px;
+  padding: 10px 5px;
+}
+.mystuff > div > * {
+    padding: 10px;
+}
+
+.support > div, .mystuff > div {
+    width: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+.support img {
+    height: 80px;
+}
+
+footer {
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
 }
