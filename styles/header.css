@@ -3,6 +3,8 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   padding: 0;
   margin: 0;
+  background-color: rgb(36, 36, 36);
+  color: white;
 }
 
 .data {
@@ -53,4 +55,9 @@ body {
   transform: translateY(-5px);
   animation: 4s ease-in-out 3s upAndDown;
   animation-iteration-count: infinite;
+}
+
+.kofi {
+  background-color: #29ABE0;
+  border-radius: 50%;
 }

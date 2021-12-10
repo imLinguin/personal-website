@@ -18,18 +18,22 @@
 
 .contributions > ul {
   list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .contributions a {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: black;
+  color: white;
   min-height: 60px;
-}
-
-.contributions > ul {
-    padding: 0;
+  text-align: center;
+  width: 100%;
+  margin: 0 10px;
 }
 
 .contributions > ul > li {
@@ -42,13 +46,15 @@
   transition: box-shadow 1s;
   margin: 10px 0;
   padding: 0;
+  min-width: 150px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .contributions > ul > li:hover {
   box-shadow: 0 0 10px 0 black;
-}
-.contributions > ul > li > a {
-    padding-left: 15px;
 }
 
 .contributions img {
