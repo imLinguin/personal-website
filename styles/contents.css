@@ -13,14 +13,13 @@
 }
 
 .mystuff > .list img {
-    height: 60px;
+  height: 60px;
 }
 
 .contributions > ul {
   list-style: none;
   padding: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
 }
@@ -62,23 +61,24 @@
   padding: 10px 5px;
 }
 .mystuff > div > * {
-    padding: 10px;
+  padding: 10px;
 }
 
-.support > div, .mystuff > div {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+.support > div,
+.mystuff > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: wrap;
 }
 
 .support img {
-    height: 80px;
+  height: 80px;
 }
 
 footer {
-    width: 100%;
-    font-size: 20px;
-    text-align: center;
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
 }

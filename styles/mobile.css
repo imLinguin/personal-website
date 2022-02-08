@@ -17,4 +17,7 @@
   .contributions > ul > li {
     width: 100%;
   }
+  .support > div, .mystuff > div {
+    justify-content: center;
+}
 }
