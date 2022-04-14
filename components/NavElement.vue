@@ -22,13 +22,22 @@ a {
   width: 228px;
   user-select: none;
   cursor: pointer;
-
+  background-color: var(--dark);
   div.bar {
     height: 3px;
     width: 100%;
   }
-  &.nuxt-link-exact-active div.bar {
-    background-color: var(--primary);
+  &.nuxt-link-exact-active {
+    div.bar {
+      background-color: var(--primary);
+    }
+    background-color: var(--lighter-dark);
+    &:hover {
+      background-color: var(--lighter-dark);
+    }
+  }
+  &:hover {
+    background-color: var(--lighter-dark-hover);
   }
   p {
     height: calc(100% - 3px);
