@@ -9,12 +9,20 @@
         </p>
         <p id="comment">// go to the page</p>
         <div class="input-place">
-          ><input
+          >
+          <input
+            v-model="autocomplete"
+            type="text"
+            class="command-input bg"
+            readonly
+          />
+          <input
             v-model="inputValue"
             type="text"
             class="command-input"
-            placeholder="cd about"
+            placeholder="whois"
             @keyup.enter="commandAction"
+            @keyup.right="inputValue = autocomplete"
           />
         </div>
       </div>
@@ -29,8 +37,32 @@ export default Vue.extend({
   name: 'IndexPage',
   data() {
     return {
+      commands: [
+        'whois',
+        'cd about',
+        'cd github',
+        'cd heroic',
+        'cd twitter',
+        'cd linkedin',
+      ].sort(),
       inputValue: '',
+      autocomplete: '',
     }
+  },
+  watch: {
+    inputValue() {
+      this.autocomplete = this.inputValue
+      if (!this.inputValue) {
+        return
+      }
+
+      for (const command of this.commands) {
+        if (command.toLowerCase().startsWith(this.inputValue.toLowerCase())) {
+          this.autocomplete = command
+          break
+        }
+      }
+    },
   },
   methods: {
     commandAction() {
@@ -55,16 +87,25 @@ export default Vue.extend({
               window.open('https://github.com/Heroic-Games-Launcher', '_blank')
               break
             }
+            case 'twitter': {
+              window.open('https://twitter.com/imLinguin', '_blank')
+              break
+            }
+            case 'linkedin': {
+              window.open('https://www.linkedin.com/in/pawellidwin', '_blank')
+              break
+            }
           }
           break
         }
-        case 'who':
         case 'whois': {
           this.$router.push('/about-me')
-
           break
         }
       }
+
+      this.inputValue = ''
+      this.autocomplete = ''
     },
   },
 })
@@ -109,18 +150,26 @@ div.input-place {
   color: var(--primary);
   font-size: 0.8em;
   font-weight: bold;
-  input {
-    margin-left: 10px;
+  input.command-input {
+    margin: 10px;
     font-weight: bold;
     font-size: 0.8em;
     color: var(--primary);
     background-color: transparent;
     border: none;
+    position: absolute;
     background-image: none;
     box-shadow: none;
-    background-color: var(--lighter-dark);
+    z-index: 2;
+    background-color: transparent;
     &:focus {
       outline: none;
+    }
+    &.bg {
+      opacity: 0.6;
+      z-index: 1;
+      position: absolute;
+      user-select: none;
     }
   }
 }
