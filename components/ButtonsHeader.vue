@@ -1,24 +1,17 @@
 <template>
-  <header>
-    <div class="name-header">
-      <p>Paweł Lidwin</p>
-      <span>
-        <div class="circle red" @click="close" />
-        <div class="circle yellow" />
-        <div class="circle green" @click="fullscreen" />
-      </span>
-    </div>
-    <nav>
-      <NavElement title="Home" route="/" />
-      <NavElement title="About me" route="/about-me" />
-    </nav>
-  </header>
+  <div class="name-header">
+    <p>Paweł Lidwin</p>
+    <span>
+      <div class="circle red" @click="close" />
+      <div class="circle yellow" />
+      <div class="circle green" @click="fullscreen" />
+    </span>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'HeaderComponent',
-
+  name: 'ButtonsHeader',
   data() {
     return {
       isFullscreen: false,
@@ -31,7 +24,7 @@ export default {
     fullscreen() {
       this.isFullscreen
         ? document.exitFullscreen()
-        : document.querySelector('body').requestFullscreen()
+        : document.querySelector('body')?.requestFullscreen()
 
       this.isFullscreen = !this.isFullscreen
     },
@@ -78,16 +71,8 @@ div.name-header {
     }
   }
 }
-
-nav {
-  background-color: var(--dark);
-  height: 45px;
-  display: flex;
-  flex-direction: row;
-}
-
 @media screen and (max-width: 768px) {
-  div.name-header span {
+  div.name-header {
     display: none;
   }
 }
