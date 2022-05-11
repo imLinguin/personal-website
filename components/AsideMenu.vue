@@ -31,15 +31,15 @@ export default {
       menuButtons: [
         {
           id: 0,
-          icon: '/data-duplicate.svg',
+          icon: 'aside/data-duplicate.svg',
         },
         {
           id: 1,
-          icon: '/search.svg',
+          icon: 'aside/search.svg',
         },
         {
           id: 2,
-          icon: '/branch.svg',
+          icon: 'aside/branch.svg',
         },
       ],
       activeButton: -1,
@@ -62,9 +62,11 @@ export default {
 
 <style lang="scss" scoped>
 aside {
+  position: relative;
   display: flex;
   flex-direction: row;
-  min-width: 50px;
+  max-width: 300px;
+  height: 100%;
   background-color: var(--dark);
   & > div {
     display: flex;
@@ -94,11 +96,13 @@ img.icon {
 }
 div.icon-wrapper {
   width: 50px;
+  cursor: pointer;
+  user-select: none;
 }
 
 section {
   height: 100%;
-  width: 300px;
+  width: 250px;
   padding: 10px;
 }
 

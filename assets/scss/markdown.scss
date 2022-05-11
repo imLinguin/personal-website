@@ -1,0 +1,51 @@
+div.markdown {
+  --yellow: rgb(234, 187, 72);
+  --green: rgb(60, 202, 87);
+  --purple: rgb(136, 138, 255);
+  --blue: rgb(80, 195, 255);
+  font-size: 30px;
+  line-height: 2em;
+  h1 {
+    color: var(--yellow);
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 1em;
+  }
+  h2 {
+    color: var(--yellow);
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: 1em;
+  }
+  h3 {
+    color: var(--yellow);
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+  p {
+    color: white;
+    font-weight: normal;
+    line-height: 1.5em;
+    margin: 1em 0;
+  }
+
+  code {
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    border-radius: 10px;
+    padding: 5px;
+    color: #aaa;
+    font-size: 1em;
+  }
+
+  a {
+    color: var(--blue);
+  }
+
+  span {
+    color: var(--green);
+  }
+
+  ul {
+    list-style-position: inside;
+  }
+}

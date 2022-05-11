@@ -35,7 +35,6 @@ export default {
 <style lang="scss" scoped>
 div.name-header {
   height: 45px;
-  width: 100vw;
   text-align: center;
   user-select: none;
   display: flex;

@@ -18,6 +18,7 @@
           />
           <input
             v-model="inputValue"
+            maxlength="20"
             type="text"
             class="command-input"
             placeholder="whois"
@@ -44,6 +45,11 @@ export default Vue.extend({
         'cd heroic',
         'cd twitter',
         'cd linkedin',
+        'open about',
+        'open github',
+        'open heroic',
+        'open twitter',
+        'open linkedin',
       ].sort(),
       inputValue: '',
       autocomplete: '',
@@ -56,12 +62,11 @@ export default Vue.extend({
         return
       }
 
-      for (const command of this.commands) {
-        if (command.toLowerCase().startsWith(this.inputValue.toLowerCase())) {
-          this.autocomplete = command
-          break
-        }
-      }
+      const autocompeteCommands = this.commands.filter((v) => {
+        return v.toLowerCase().startsWith(this.inputValue.toLowerCase())
+      })
+
+      this.autocomplete = autocompeteCommands[0]
     },
   },
   methods: {
@@ -73,6 +78,7 @@ export default Vue.extend({
       }
 
       switch (commandParts[0]) {
+        case 'open':
         case 'cd': {
           switch (commandParts[1].toLowerCase()) {
             case 'about': {
@@ -118,7 +124,7 @@ div.content {
   display: flex;
   align-items: center;
   div.hello {
-    padding-left: 200px;
+    padding: 0 10%;
     font-size: 56px;
     p#hi {
       font-size: 1em;
@@ -152,6 +158,8 @@ div.input-place {
   font-weight: bold;
   input.command-input {
     margin: 10px;
+    min-width: 200px;
+    width: 50vw;
     font-weight: bold;
     font-size: 0.8em;
     color: var(--primary);
@@ -177,7 +185,6 @@ div.input-place {
 @media screen and (max-width: 768px) {
   div.content {
     justify-content: center;
-    width: 100%;
     height: calc(100vh - 45px);
     div.hello {
       font-size: 40px;
