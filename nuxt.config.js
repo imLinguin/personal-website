@@ -1,6 +1,6 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
   loading: { color: '#a4b9db', height: '3px' },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -43,7 +43,7 @@ export default {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',
   },
-
+  ssr: true,
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }
