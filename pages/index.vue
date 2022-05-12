@@ -55,6 +55,9 @@ export default Vue.extend({
       autocomplete: '',
     }
   },
+  head: {
+    title: 'Home',
+  },
   watch: {
     inputValue() {
       this.autocomplete = this.inputValue

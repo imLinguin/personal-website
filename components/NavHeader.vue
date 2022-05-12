@@ -2,6 +2,7 @@
   <nav>
     <NavElement title="Home" route="/" />
     <NavElement title="About me" route="/about-me" />
+    <NavElement title="Blog" route="/blog" />
   </nav>
 </template>
 

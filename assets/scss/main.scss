@@ -19,3 +19,19 @@ body {
   overflow-y: hidden;
   background-color: var(--dark);
 }
+
+div.root {
+  width: 100%;
+  background: var(--lighter-dark);
+  height: calc(100vh - 90px);
+  padding: 30px;
+  overflow-y: auto;
+  @media screen and (max-width: 768px) {
+    height: calc(100vh - 45px);
+    padding: 15px;
+  }
+  & .container {
+    max-width: 1370px;
+    margin: 0 auto;
+  }
+}

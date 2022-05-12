@@ -1,26 +1,26 @@
 <template>
-  <div class="about-content markdown">
-    <h1 @click="linkId('#')"># About me</h1>
-    <p>
-      I'm {{ age }} years old software developer from Poland. I'm a Linux
-      enthusiast who tries to make <code>Linux Gaming</code> accesible to more
-      people. Contributor of [<span>Heroic Games Launcher</span>](<a
-        href="https://heroicgameslauncher.com"
-        >https://heroicgameslauncher.com</a
-      >)
-    </p>
+  <div class="root markdown">
+    <div class="container">
+      <h1 @click="linkId('#')">About me</h1>
+      <p>
+        I'm {{ age }} years old software developer from Poland. I'm a Linux
+        enthusiast who tries to make <code>Linux Gaming</code> accesible to more
+        people. Contributor of
+        <a href="https://heroicgameslauncher.com">Heroic Games Launcher</a>
+      </p>
 
-    <h2 @click="linkId('#technologies-and-languages')">
-      ## Technologies and languages I'm familiar with
-    </h2>
-    <ul class="technologies">
-      <li v-for="technology in technologies" :key="technology.name">
-        {{ technology.name }}
-        <a :href="technology.link" rel="noreferer noopener" target="_blank"
-          ><img :src="technology.icon"
-        /></a>
-      </li>
-    </ul>
+      <h2 @click="linkId('#technologies-and-languages')">
+        Technologies and languages I'm familiar with
+      </h2>
+      <ul class="technologies">
+        <li v-for="technology in technologies" :key="technology.name">
+          {{ technology.name }}
+          <a :href="technology.link" rel="noreferer noopener" target="_blank"
+            ><img :src="technology.icon"
+          /></a>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -31,6 +31,9 @@ export default {
     return {
       age: new Date().getFullYear() - 2004,
     }
+  },
+  head: {
+    title: 'About',
   },
   computed: {
     technologies() {
@@ -82,13 +85,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div.about-content {
-  padding: 30px;
-  overflow-y: auto;
-  background: var(--lighter-dark);
-  width: 100%;
-  height: calc(100vh - 90px);
-
+div.root {
   li {
     display: flex;
     align-items: center;

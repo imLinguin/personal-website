@@ -27,6 +27,7 @@ a {
     height: 3px;
     width: 100%;
   }
+  &.nuxt-link-active:not([href='/']),
   &.nuxt-link-exact-active {
     div.bar {
       background-color: var(--primary);

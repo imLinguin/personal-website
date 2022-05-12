@@ -16,36 +16,59 @@ div.markdown {
     font-weight: bold;
     font-size: 1.2em;
     line-height: 1em;
+    margin-top: 1em;
   }
   h3 {
     color: var(--yellow);
     font-weight: 500;
     font-size: 1.1em;
+    margin-top: 1em;
   }
   p {
     color: white;
     font-weight: normal;
     line-height: 1.5em;
-    margin: 1em 0;
   }
 
+  pre,
   code {
     background-color: rgba($color: #000000, $alpha: 0.4);
     border-radius: 10px;
     padding: 5px;
     color: #aaa;
-    font-size: 1em;
+    font-size: 0.8em;
   }
 
   a {
     color: var(--blue);
+    &.small {
+      font-size: 0.7em;
+    }
   }
 
   span {
     color: var(--green);
+    &.small {
+      color: inherit;
+      opacity: 0.3;
+      font-size: 0.7em;
+    }
   }
 
-  ul {
+  ul,
+  ol {
     list-style-position: inside;
+    li {
+      line-height: 1em;
+      margin: 0 0 0.5em 0.7em;
+    }
+  }
+  img {
+    width: min(1000px, 100%);
+    clear: both;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 25px;
   }
 }

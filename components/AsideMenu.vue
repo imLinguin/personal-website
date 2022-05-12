@@ -31,15 +31,15 @@ export default {
       menuButtons: [
         {
           id: 0,
-          icon: 'aside/data-duplicate.svg',
+          icon: '/aside/data-duplicate.svg',
         },
         {
           id: 1,
-          icon: 'aside/search.svg',
+          icon: '/aside/search.svg',
         },
         {
           id: 2,
-          icon: 'aside/branch.svg',
+          icon: '/aside/branch.svg',
         },
       ],
       activeButton: -1,
@@ -66,7 +66,6 @@ aside {
   display: flex;
   flex-direction: row;
   max-width: 300px;
-  height: 100%;
   background-color: var(--dark);
   & > div {
     display: flex;

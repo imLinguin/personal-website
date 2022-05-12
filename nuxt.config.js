@@ -4,7 +4,7 @@ export default {
   loading: { color: '#a4b9db', height: '3px' },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Paweł Lidwin',
+    titleTemplate: '%s - Paweł Lidwin',
     htmlAttrs: {
       lang: 'en',
     },
@@ -36,6 +36,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxt/content',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
