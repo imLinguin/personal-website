@@ -14,6 +14,9 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
       { name: 'theme-color', content: '#0e121f' },
+      { property: 'og:type', content: 'website' },
+      { property: 'twitter:card', content: 'summary_large_image' },
+      { property: 'twitter:creatpr', content: '@imLinguin' },
     ],
   },
 

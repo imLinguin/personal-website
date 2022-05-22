@@ -2,10 +2,10 @@
 title: Reverse Engineering Galaxy Communication Service - Environment Setup
 description: How to setup your environment for reverse engineering Galaxy Communication Service
 createdAt: 05.12.2022
-image: null
+image: /blog/galaxy-comm-serv-re-setup/1.webp
 ---
 
-Softwer we need:
+Software we need:
 - Windows 11 VM (Can be any Windows machine or VM)
 - [Proxifier](https://www.proxifier.com/) (it's paid but we can use 30 day trial)
 - [Custom mitmproxy build](https://github.com/Yepoleb/mitmproxy-crl/tree/crl)
