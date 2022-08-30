@@ -64,3 +64,12 @@ I have working prototype that works with local files, but can be easily changed 
 
 Script decompresses game files to `testdir/` in the current path  
 you can get [the source here](https://gist.github.com/imLinguin/603c2d879c3db29eb8fff604216adfc4) you can do whatever you want with it
+
+
+## Summary
+
+With this method we can obtain whole metadata in a few requests `~500KB` and decide what files to request next.
+
+It's not only faster. But also saves a lot of space. With offline installers user has to have more than twice the space required by the game.
+
+Even if GOG doesn't want to support Linux platform entirely. That doesn't stop us from making GOG experience better on our own :)
