@@ -17,7 +17,11 @@
 export default {
   name: 'BlogLanding',
   async asyncData({ $content }) {
-    return { page: await $content('blog').fetch() }
+    return {
+      page: (await $content('blog').fetch()).sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      ),
+    }
   },
   head: {
     title: 'Blog',

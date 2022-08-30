@@ -16,7 +16,7 @@ export default {
       { name: 'theme-color', content: '#0e121f' },
       { property: 'og:type', content: 'website' },
       { property: 'twitter:card', content: 'summary_large_image' },
-      { property: 'twitter:creatpr', content: '@imLinguin' },
+      { property: 'twitter:creator', content: '@imLinguin' },
     ],
   },
 

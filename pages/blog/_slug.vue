@@ -42,20 +42,22 @@ export default {
           property: 'twitter:url',
           content: `${this.websiteUrl}`,
         },
-        ...(this.page.image && [
-          {
-            property: 'og:image',
-            content: `${this.websiteOrigin}${this.page.image}`,
-          },
-          {
-            property: 'twitter:image',
-            content: `${this.websiteOrigin}${this.page.image}`,
-          },
-          {
-            property: 'image_url',
-            content: `${this.websiteOrigin}${this.page.image}`,
-          },
-        ]),
+        ...(this.page.image
+          ? [
+              {
+                property: 'og:image',
+                content: `${this.websiteOrigin}${this.page.image}`,
+              },
+              {
+                property: 'twitter:image',
+                content: `${this.websiteOrigin}${this.page.image}`,
+              },
+              {
+                property: 'image_url',
+                content: `${this.websiteOrigin}${this.page.image}`,
+              },
+            ]
+          : []),
       ],
     }
   },

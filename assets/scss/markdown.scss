@@ -3,7 +3,7 @@ div.markdown {
   --green: rgb(60, 202, 87);
   --purple: rgb(136, 138, 255);
   --blue: rgb(80, 195, 255);
-  font-size: 30px;
+  font-size: 24px;
   line-height: 2em;
   h1 {
     color: var(--yellow);
@@ -28,6 +28,7 @@ div.markdown {
     color: white;
     font-weight: normal;
     line-height: 1.5em;
+    margin: 0.8em 0;
   }
 
   pre,
@@ -66,6 +67,16 @@ div.markdown {
   img {
     width: min(1000px, 100%);
     clear: both;
+  }
+
+  table {
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.5);
+    background: rgba(136, 138, 255, 0.03);
+    td {
+      border-top: 1px solid rgba(255, 255, 255, 0.137);
+    }
   }
 
   @media screen and (max-width: 768px) {
