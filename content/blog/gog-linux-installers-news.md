@@ -1,5 +1,5 @@
 ---
-title: Galaxy like experiance for Linux native games
+title: Galaxy like experience for Linux native games
 description: Summary of what we know and what amazing things we can do with GOG's offline installers
 createdAt: 08.30.2022
 ---
