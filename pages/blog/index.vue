@@ -4,33 +4,31 @@
       <h1>imLinguin Blog</h1>
       <p>Posts:</p>
       <ul>
-        <li v-for="blog in page" :key="blog.slug + 'page'">
+        <li v-for="blog in posts" :key="blog.slug + 'page'">
           <nuxt-link :to="blog.path">{{ blog.title }}</nuxt-link>
-          <span class="small">{{ getLocaleString(blog.createdAt) }}</span>
+          <span class="small">{{ getLocaleString(blog.meta.createdAt) }}</span>
         </li>
       </ul>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'BlogLanding',
-  async asyncData({ $content }) {
-    return {
-      page: (await $content('blog').fetch()).sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-      ),
-    }
-  },
-  head: {
-    title: 'Blog',
-  },
-  methods: {
-    getLocaleString(date) {
-      return new Date(date).toLocaleDateString()
-    },
-  },
+<script setup lang="ts">
+const { data: posts } = await useAsyncData(
+  'blog',
+  () => queryCollection('blog').all(),
+  {
+    transform: (posts) =>
+      posts.sort((a, b) => new Date(b.meta.createdAt) - new Date(a.meta.createdAt)),
+  }
+)
+
+useSeoMeta({
+  title: 'Blog',
+})
+
+function getLocaleString(date) {
+  return new Date(date).toLocaleDateString()
 }
 </script>
 

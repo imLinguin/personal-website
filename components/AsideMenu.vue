@@ -5,11 +5,7 @@
         v-for="button in menuButtons"
         :key="button.id"
         class="icon-wrapper"
-        @click="
-          {
-            setActiveButton(button.id)
-          }
-        "
+        @click="setActiveButton(button.id)"
       >
         <img
           :src="button.icon"
@@ -23,40 +19,32 @@
   </aside>
 </template>
 
-<script>
-export default {
-  name: 'AsideMenu',
-  data() {
-    return {
-      menuButtons: [
-        {
-          id: 0,
-          icon: '/aside/data-duplicate.svg',
-        },
-        {
-          id: 1,
-          icon: '/aside/search.svg',
-        },
-        {
-          id: 2,
-          icon: '/aside/branch.svg',
-        },
-      ],
-      activeButton: -1,
-      shown: false,
-    }
+<script setup lang="ts">
+const activeButton = ref(-1)
+const menuButtons = ref([
+  {
+    id: 0,
+    icon: '/aside/data-duplicate.svg',
   },
-  methods: {
-    setActiveButton(buttonId) {
-      if (buttonId === this.activeButton) {
-        this.shown = false
-        this.activeButton = -1
-        return
-      }
-      this.activeButton = buttonId
-      this.shown = true
-    },
+  {
+    id: 1,
+    icon: '/aside/search.svg',
   },
+  {
+    id: 2,
+    icon: '/aside/branch.svg',
+  },
+])
+const shown = ref(false)
+
+function setActiveButton(buttonId) {
+  if (buttonId === activeButton.value) {
+    shown.value = false
+    activeButton.value = -1
+    return
+  }
+  activeButton.value = buttonId
+  shown.value = true
 }
 </script>
 

@@ -5,14 +5,11 @@
   </NuxtLink>
 </template>
 
-<script lang="ts">
-export default {
-  name: 'NavElement',
-  props: {
-    title: { type: String, default: '' },
-    route: { type: String, default: '/' },
-  },
-}
+<script lang="ts" setup>
+const props = withDefaults(defineProps<{ title: string; route: string }>(), {
+  title: '',
+  route: '/',
+})
 </script>
 
 <style lang="scss" scoped>
@@ -27,8 +24,8 @@ a {
     height: 3px;
     width: 100%;
   }
-  &.nuxt-link-active:not([href='/']),
-  &.nuxt-link-exact-active {
+  &.router-link-active:not([href='/']),
+  &.router-link-exact-active {
     div.bar {
       background-color: var(--primary);
     }

@@ -3,7 +3,7 @@
     <div class="container">
       <h1 @click="linkId('#')">About me</h1>
       <p>
-        I'm {{ age }} years old software developer from Poland. I'm a Linux
+        I'm a software developer from Poland. I'm a Linux
         enthusiast who tries to make <code>Linux Gaming</code> accesible to more
         people. Contributor of
         <a href="https://heroicgameslauncher.com">Heroic Games Launcher</a>

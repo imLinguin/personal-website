@@ -7,7 +7,7 @@
       <AsideMenu />
       <div>
         <NavHeader />
-        <Nuxt />
+        <slot />
       </div>
     </div>
     <Footer />

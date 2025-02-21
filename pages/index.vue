@@ -5,7 +5,7 @@
         <p id="hi">
           <span>Hi, I am</span> <br />
           <span id="name"> Paweł Lidwin </span><br />
-          <span>known as</span> <span id="nickname">Linguin</span>
+          <span>also known as</span> <span id="nickname">Linguin</span>
         </p>
         <p id="comment">// go to the page</p>
         <div class="input-place">
@@ -31,92 +31,88 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script lang="ts" setup>
+const router = useRouter()
+const inputValue = ref('')
+const autocomplete = ref('')
 
-export default Vue.extend({
-  name: 'IndexPage',
-  data() {
-    return {
-      commands: [
-        'whois',
-        'cd about',
-        'cd github',
-        'cd heroic',
-        'cd twitter',
-        'cd linkedin',
-        'open about',
-        'open github',
-        'open heroic',
-        'open twitter',
-        'open linkedin',
-      ].sort(),
-      inputValue: '',
-      autocomplete: '',
+const commands = ref(
+  [
+    'whois',
+    'cd about',
+    'cd blog',
+    'cd github',
+    'cd heroic',
+    'cd twitter',
+    'cd linkedin',
+    'cd planpk',
+    'open about',
+    'open blog',
+    'open github',
+    'open heroic',
+    'open twitter',
+    'open linkedin',
+    'open planpk',
+  ].sort()
+)
+
+watch(inputValue, (newVal) => {
+  if (!newVal) {
+    autocomplete.value = ''
+    return
+  }
+  const autocompeteCommands = commands.value.filter((v) =>
+    v.toLowerCase().startsWith(newVal.toLowerCase())
+  )
+  autocomplete.value = autocompeteCommands[0] || ''
+})
+
+const commandAction = () => {
+  if (autocomplete.value > inputValue.value) {
+    inputValue.value = autocomplete.value
+  }
+  const commandParts = inputValue.value.split(' ')
+  if (commandParts.length === 0) return
+
+  switch (commandParts[0]) {
+    case 'open':
+    case 'cd': {
+      switch (commandParts[1]?.toLowerCase()) {
+        case 'about':
+          router.push('/about-me')
+          break
+        case 'blog':
+          router.push('/blog')
+          break
+        case 'github':
+          window.open('https://github.com/imLinguin', '_blank')
+          break
+        case 'heroic':
+          window.open('https://github.com/Heroic-Games-Launcher', '_blank')
+          break
+        case 'twitter':
+          window.open('https://twitter.com/imLinguin', '_blank')
+          break
+        case 'linkedin':
+          window.open('https://www.linkedin.com/in/pawellidwin', '_blank')
+          break
+        case 'planpk':
+          window.open('https://planpk.linguin.dev', '_blank')
+          break
+      }
+      break
     }
-  },
-  head: {
-    title: 'Home',
-  },
-  watch: {
-    inputValue() {
-      this.autocomplete = this.inputValue
-      if (!this.inputValue) {
-        return
-      }
+    case 'whois':
+      router.push('/about-me')
+      break
+  }
 
-      const autocompeteCommands = this.commands.filter((v) => {
-        return v.toLowerCase().startsWith(this.inputValue.toLowerCase())
-      })
+  inputValue.value = ''
+  autocomplete.value = ''
+}
 
-      this.autocomplete = autocompeteCommands[0]
-    },
-  },
-  methods: {
-    commandAction() {
-      const commandParts = this.inputValue.split(' ')
-
-      if (commandParts.length === 0) {
-        return
-      }
-
-      switch (commandParts[0]) {
-        case 'open':
-        case 'cd': {
-          switch (commandParts[1].toLowerCase()) {
-            case 'about': {
-              this.$router.push('/about-me')
-              break
-            }
-            case 'github': {
-              window.open('https://github.com/imLinguin', '_blank')
-              break
-            }
-            case 'heroic': {
-              window.open('https://github.com/Heroic-Games-Launcher', '_blank')
-              break
-            }
-            case 'twitter': {
-              window.open('https://twitter.com/imLinguin', '_blank')
-              break
-            }
-            case 'linkedin': {
-              window.open('https://www.linkedin.com/in/pawellidwin', '_blank')
-              break
-            }
-          }
-          break
-        }
-        case 'whois': {
-          this.$router.push('/about-me')
-          break
-        }
-      }
-
-      this.inputValue = ''
-      this.autocomplete = ''
-    },
-  },
+useHead({
+  title: 'Home',
 })
 </script>
 
