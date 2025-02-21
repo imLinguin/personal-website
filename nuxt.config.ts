@@ -6,6 +6,18 @@ export default defineNuxtConfig({
       crawlLinks: true,
     },
   },
+  app: {
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=',
+      link: [
+        {
+          rel: 'me',
+          href: 'https://fosstodon.org/@imLinguin'
+        }
+      ]
+    }
+  },
   css: ['~/assets/scss/main.scss', '~/assets/scss/markdown.scss'],
   modules: ['@nuxt/content'],
 })
