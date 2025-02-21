@@ -37,7 +37,7 @@ const menuButtons = ref([
 ])
 const shown = ref(false)
 
-function setActiveButton(buttonId) {
+function setActiveButton(buttonId: number) {
   if (buttonId === activeButton.value) {
     shown.value = false
     activeButton.value = -1
