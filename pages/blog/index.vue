@@ -4,8 +4,8 @@
       <h1>imLinguin Blog</h1>
       <p>Posts:</p>
       <ul>
-        <li v-for="blog in posts" :key="blog.slug + 'page'">
-          <nuxt-link :to="blog.path">{{ blog.title }}</nuxt-link>
+        <li v-for="blog in posts" :key="blog.meta.slug + 'page'">
+          <NuxtLink :to="blog.path">{{ blog.title }}</NuxtLink>
           <span class="small">{{ getLocaleString(blog.meta.createdAt) }}</span>
         </li>
       </ul>
@@ -19,7 +19,9 @@ const { data: posts } = await useAsyncData(
   () => queryCollection('blog').all(),
   {
     transform: (posts) =>
-      posts.sort((a, b) => new Date(b.meta.createdAt) - new Date(a.meta.createdAt)),
+      posts.sort(
+        (a, b) => new Date(b.meta.createdAt) - new Date(a.meta.createdAt)
+      ),
   }
 )
 
@@ -27,7 +29,7 @@ useSeoMeta({
   title: 'Blog',
 })
 
-function getLocaleString(date) {
+function getLocaleString(date: string) {
   return new Date(date).toLocaleDateString()
 }
 </script>

@@ -1,8 +1,8 @@
 <template>
   <div class="root markdown">
-    <div class="container">
+    <div v-if="page" class="container">
       <h1>{{ page.title }}</h1>
-      <nuxt-link to="/blog" class="small">Back</nuxt-link>
+      <NuxtLink to="/blog" class="small">Back</NuxtLink>
       <span class="small">{{ createdAt }}</span>
       <ContentRenderer class="md-content" :value="page" />
     </div>
@@ -10,11 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-
 const route = useRoute()
 
-const { data: page } = await useAsyncData(() =>
+const { data: page } = await useAsyncData(route.params.slug, () =>
   queryCollection('blog').path(`/blog/${route.params.slug}`).first()
 )
 
