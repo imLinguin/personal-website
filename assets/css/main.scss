@@ -88,10 +88,14 @@ a {
 
 .last-articles {
   margin-top: 24px;
-  padding: 8px 0;
+  padding: 8px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: 641px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .article-preview {
@@ -113,25 +117,28 @@ a {
 
 article.full-article {
   display: flex;
-  padding: 16px 0;
+  padding: 8px;
   flex-direction: column;
   text-align: left;
 
   & .article-header {
     font-size: 1.3rem;
-    width: 720px;
+    width: 100%;
+    max-width: 720px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 16px;
   }
   & .article-content {
-    width: 720px;
+    width: 100%;
+    max-width: 720px;
     margin: 0 auto;
   }
   & img {
     margin: 32px auto;
     border-radius: 10px;
+    width: 100%;
     max-width: 720px;
     aspect-ratio: 16/9;
     object-fit: cover;
@@ -140,15 +147,20 @@ article.full-article {
 
 .article-grid {
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
+  grid-template-columns: 1fr;
+  padding: 8px;
   gap: 32px;
-  & > article {
-    grid-column: span 4;
-  }
-  & > :first-child {
-    font-size: 1.4em;
-    grid-column: 1 / span 8;
-    grid-row: span 2;
+
+  @media screen and (min-width: 641px) {
+    grid-template-columns: repeat(16, 1fr);
+    & > article {
+      grid-column: span 4;
+    }
+    & > :first-child {
+      font-size: 1.4em;
+      grid-column: 1 / span 8;
+      grid-row: span 2;
+    }
   }
 }
 
