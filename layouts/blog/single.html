@@ -3,12 +3,31 @@
   <div class="article-header">
     <h1 class="article-title">{{.Title}}</h1>
     <p class="article-description">{{.Params.description}}</p>
+
+    {{ range .GetTerms "author"}}
+    <div class="article-author">
+      {{with .Resources.Get "portrait.jpg"}}
+      {{with .Fill "128x128"}}
+      <img src="{{.RelPermalink}}" width="{{.Width}}" height="{{.Height}}" />
+      {{end}}
+      {{end}} 
+      <div class="article-author-details">
+        <span>{{.Title}}</span>
+        <span>{{.Date | time.Format ":date_medium"}} {{if ne .ReadingTime 0}} - {{ .ReadingTime }} min read {{end}}</span>
+      </div>
+    </div>
+
+    {{end}}
+
+    <span></span>
   </div>
-  {{if .Params.image }}
+  {{with .Resources.Get .Params.image }}
   <img
-    src="{{.RelPermalink}}{{.Params.image}}"
+    src="{{ .RelPermalink }}"
+    id="preview"
     alt="preview"
-    style="view-transition-name: img-{{.File.ContentBaseName  | urlize }};"
+    width="{{.Width}}"
+    style="view-transition-name: img-{{$.File.ContentBaseName | urlize }};"
   />
   {{end}}
   <div class="article-content">{{.Content}}</div>

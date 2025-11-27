@@ -120,7 +120,6 @@ article.full-article {
   padding: 8px;
   flex-direction: column;
   text-align: left;
-
   & .article-header {
     font-size: 1.3rem;
     width: 100%;
@@ -134,14 +133,42 @@ article.full-article {
     width: 100%;
     max-width: 720px;
     margin: 0 auto;
+    & h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      margin: 8px 0;
+    }
   }
   & img {
-    margin: 32px auto;
     border-radius: 10px;
-    width: 100%;
     max-width: 720px;
-    aspect-ratio: 16/9;
-    object-fit: cover;
+  }
+  & img#preview {
+    margin: 32px auto;
+    max-width: 720px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  & .article-author {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 16px;
+    &-details {
+      display: flex;
+      gap: 8px;
+      flex-direction: column;
+      & :last-child {
+        font-size: 0.8em;
+      }
+    }
+    & img {
+      width: 96px;
+      height: 96px;
+    }
   }
 }
 

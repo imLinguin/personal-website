@@ -3,3 +3,11 @@ languageCode = 'en-us'
 title = 'Linguin'
 [caches.images]
 dir = ':cacheDir/images'
+
+[taxonomies]
+category = 'categories'
+tag = 'tags'
+author = 'author'
+
+[params.social]
+twitter = "@ImLinguin"

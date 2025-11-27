@@ -14,10 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
     <link rel="expect" blocking="render" href="#home">
-    {{if .Params.image}}
-    <link rel="preload" as="image" href="{{.RelPermalink}}{{.Params.image}}" />
+    {{with .Resources.Get .Params.image}}
+    <link rel="preload" as="image" href="{{.Permalink}}" />
     {{end}}
 
+    {{ if eq .Section "blog"}}
+        {{ partial "opengraph.html" . }}
+        {{ partial "twitter_cards.html" . }}
+    {{end}}
     {{ with .OutputFormats.Get "RSS" }}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end }}
