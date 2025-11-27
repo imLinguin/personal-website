@@ -4,7 +4,7 @@
     <img src="{{.RelPermalink}}{{.Params.image}}" alt="preview" style="view-transition-name: img-{{.File.ContentBaseName | urlize }};"
 />
     {{end}}
-    <div class="date">{{.Date | time.Format ":date_medium"}}</div>
+    <div class="date" style="view-transition-name: date-{{.File.ContentBaseName | urlize }};">{{.Date | time.Format ":date_medium"}}</div>
     <h3 style="view-transition-name: title-{{.File.ContentBaseName | urlize }};">{{.Title}}</h3>
     <p style="view-transition-name: summary-{{.File.ContentBaseName | urlize }};">{{.Params.description | truncate 150}}</p>
   </a>
