@@ -90,3 +90,7 @@ sw.*
 *.swp
 
 .data
+
+
+public
+resources

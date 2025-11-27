@@ -1,0 +1,158 @@
+@import "reset.scss";
+
+$primary-color-light: black;
+$primary-color-dark: white;
+$background-color-dark: #212121;
+
+@mixin dark-theme() {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+:root {
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  color: $primary-color-light;
+  @include dark-theme() {
+    color: $primary-color-dark;
+    background-color: $background-color-dark;
+  }
+}
+
+svg * {
+  fill: $primary-color-light;
+  @include dark-theme() {
+    fill: $primary-color-dark;
+  }
+}
+
+#content {
+  margin: 0 auto;
+  max-width: 1320px;
+}
+
+header {
+  font-size: 1.2rem;
+  & > .header-content {
+    margin: 0 auto;
+    max-width: 1320px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 16px;
+  }
+  & .pages {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 1em;
+  }
+}
+
+a {
+  color: $primary-color-light;
+  text-decoration: none;
+  &:hover {
+    opacity: 0.8;
+  }
+  @include dark-theme() {
+    color: $primary-color-dark;
+  }
+}
+
+.homepage {
+  font-size: 1.5rem;
+  margin: 120px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  & h1 {
+    margin: 2rem 0;
+  }
+  & .socials {
+    margin: 32px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 32px;
+  }
+}
+
+.last-articles {
+  margin-top: 24px;
+  padding: 8px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.article-preview {
+  text-wrap: wrap;
+  & img {
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+  }
+  & .date {
+    padding: 0.5em 0;
+    opacity: 0.5;
+  }
+  & h3 {
+    font-size: 1.5em;
+  }
+}
+
+article.full-article {
+  display: flex;
+  padding: 16px 0;
+  flex-direction: column;
+  text-align: left;
+
+  & .article-header {
+    font-size: 1.3rem;
+    width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  & .article-content {
+    width: 720px;
+    margin: 0 auto;
+  }
+  & img {
+    margin: 32px auto;
+    border-radius: 10px;
+    max-width: 720px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 32px;
+  & > article {
+    grid-column: span 4;
+  }
+  & > :first-child {
+    font-size: 1.4em;
+    grid-column: 1 / span 8;
+    grid-row: span 2;
+  }
+}
+
+.notfound {
+  font-size: 2rem;
+  text-align: center;
+}

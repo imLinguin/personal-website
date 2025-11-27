@@ -1,0 +1,9 @@
+{{ define "main" }}
+
+
+<div class="article-grid">
+    {{ $articles := .Pages }}
+    {{ range $articles }} {{partial "articlelink.html" .}} {{end}}
+</div>
+
+{{end}}

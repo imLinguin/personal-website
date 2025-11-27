@@ -1,0 +1,5 @@
+baseURL = 'https://linguin.dev/'
+languageCode = 'en-us'
+title = 'Linguin'
+[caches.images]
+dir = ':cacheDir/images'

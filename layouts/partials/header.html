@@ -1,0 +1,9 @@
+<header>
+  <nav class="header-content">
+    <h2 id="home"><a href="{{ if eq .Section "blog" }}/blog{{else}}/{{end}}">{{$.Site.Title}}</a></h2>
+    <div class="pages">
+      <a href="/me">Me</a>
+      <a href="/blog">Blog</a>
+    </div>
+  </div>
+</header>

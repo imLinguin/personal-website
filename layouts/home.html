@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="homepage">
+  <h1>Paweł Lidwin</h1>
+  <p>Hi!</p>
+  <div class="socials">
+    <a href="https://github.com/imLinguin" target="_blank">
+      {{ $github := resources.Get "images/github-mark.svg"}} {{ $github.Content
+      | safeHTML }}
+    </a>
+
+    <a href="https://linkedin.com/in/pawellidwin/" target="_blank">
+      {{ $linkedin := resources.Get "images/linkedin.svg"}} {{ $linkedin.Content
+      | safeHTML }}
+    </a>
+  </div>
+</div>
+
+<h2>Latest Articles</h2>
+<div class="last-articles">
+  {{ range first 4 (where .Site.RegularPages "Section" "blog")}} {{partial
+  "articlelink.html" . }} {{end}}
+</div>
+{{end}}
