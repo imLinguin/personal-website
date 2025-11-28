@@ -20,7 +20,7 @@ Software we need:
 Everything we are going to do here will happen only in a VM, you can also try to run Galaxy in Wine, however I couldn't find any Proxifier alternatives
 
 
-### Proxifier setup
+## Proxifier setup
 Download and install [Proxifier](https://www.proxifier.com/) and add proxy settings as follows
 
 ![](1.webp)
@@ -36,7 +36,7 @@ Note: Executable can be different for you depending on which Python version you 
 ![](3.webp)
 
 
-### Mitmproxy setup
+## Mitmproxy setup
 Follow the development setup steps from [CONTRIBUTING.md](https://github.com/Yepoleb/mitmproxy-crl/blob/crl/CONTRIBUTING.md) to install mitmproxy
 
 Now temporarly add proxification rule for your web browser in Proxifier and launch mitmproxy on port we configured.

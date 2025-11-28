@@ -1,14 +1,14 @@
 {{ define "main" }}
 <div class="homepage">
   <h1>Paweł Lidwin</h1>
-  <p>Hi!</p>
+  <p>{{.Params.description}}</p>
   <div class="socials">
-    <a href="https://github.com/imLinguin" target="_blank">
+    <a href="https://github.com/imLinguin" target="_blank" title="GitHub">
       {{ $github := resources.Get "images/github-mark.svg"}} {{ $github.Content
       | safeHTML }}
     </a>
 
-    <a href="https://linkedin.com/in/pawellidwin/" target="_blank">
+    <a href="https://linkedin.com/in/pawellidwin/" target="_blank" title="LinkedIn">
       {{ $linkedin := resources.Get "images/linkedin.svg"}} {{ $linkedin.Content
       | safeHTML }}
     </a>

@@ -8,7 +8,7 @@
     <div class="article-author">
       {{with .Resources.Get "portrait.jpg"}}
       {{with .Fill "128x128"}}
-      <img src="{{.RelPermalink}}" width="{{.Width}}" height="{{.Height}}" />
+      <img src="{{.RelPermalink}}" width="{{.Width}}" height="{{.Height}}" alt="author portrait"/>
       {{end}}
       {{end}} 
       <div class="article-author-details">

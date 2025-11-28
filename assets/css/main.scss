@@ -24,6 +24,10 @@ $background-color-dark: #212121;
   }
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 svg * {
   fill: $primary-color-light;
   @include dark-theme() {
